@@ -5,7 +5,7 @@
    host: process.env.UNMS_RABBITMQ_HOST || '127.0.0.1',
    port: parseInt(process.env.UNMS_RABBITMQ_PORT, 10) || 5672,
 +  user: process.env.UNMS_RABBITMQ_USER || '',
-+  pass: process.env.UNMS_RABBITMQ_PASS || ''
++  pass: process.env.UNMS_RABBITMQ_PASS || '',
    exchange: 'unms',
  };
  internals.Config.publicDir = path.join(__dirname, 'public');
