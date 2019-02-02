@@ -1,0 +1,11 @@
+--- /home/app/unms/lib/ws/messaging.js	2019-01-07 02:44:50.000000000 -0800
++++ /home/app/unms/lib/ws/messaging.js	2019-02-02 00:24:24.800171758 -0800
+@@ -14,7 +14,7 @@
+ 
+ class Messaging {
+   constructor({ rabbitMqConfig: config }) {
+-    this.connection$ = AmqpConnection.create(`amqp://${config.host}:${config.port}`)
++    this.connection$ = AmqpConnection.create(`amqp://${config.user}:${config.pass}@${config.host}:${config.port}`)
+       .repeat()
+       .publishReplay(1);
+ 

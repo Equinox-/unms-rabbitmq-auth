@@ -1,0 +1,11 @@
+--- /home/app/unms/lib/notification-hub/plugin.js	2019-01-07 02:44:50.000000000 -0800
++++ /home/app/unms/lib/notification-hub/plugin.js	2019-02-02 00:23:02.829985066 -0800
+@@ -40,7 +40,7 @@
+ 
+   server.expose(pluginApi);
+ 
+-  return amqplib.connect(`amqp://${options.host}:${options.port}`)
++  return amqplib.connect(`amqp://${options.user}:${options.pass}@${options.host}:${options.port}`)
+     .then((conn) => {
+       amqpState.initialize(conn);
+ 
