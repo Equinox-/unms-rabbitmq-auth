@@ -1,6 +1,9 @@
 FROM ubnt/unms:latest
 MAINTAINER Westin Miller "equinoxscripts@gmail.com"
 
+ENV UNMS_RABBITMQ_USER="" \
+	UNMS_RABBITMQ_PASS=""
+
 COPY config.js.patch plugin.js.patch /tmp/
 
 RUN patch /home/app/unms/config.js /tmp/config.js.patch \
