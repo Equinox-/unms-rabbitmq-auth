@@ -1,11 +1,12 @@
---- /home/app/unms/config.js	2018-01-29 08:24:14.000000000 -0800
+--- /home/app/unms/config.js	2019-01-15 02:37:31.000000000 -0800
 +++ /home/app/unms/config.js	2019-02-01 21:41:17.277508639 -0800
-@@ -56,6 +56,8 @@
+@@ -78,6 +78,8 @@
  internals.Config.rabbitMQ = {
    host: process.env.UNMS_RABBITMQ_HOST || '127.0.0.1',
    port: parseInt(process.env.UNMS_RABBITMQ_PORT, 10) || 5672,
 +  user: process.env.UNMS_RABBITMQ_USER || '',
 +  pass: process.env.UNMS_RABBITMQ_PASS || '',
    exchange: 'unms',
+   notifyExchange: 'unms-notify',
  };
- internals.Config.publicDir = path.join(__dirname, 'public');
+ 

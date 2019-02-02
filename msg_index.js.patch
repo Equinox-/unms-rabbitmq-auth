@@ -1,0 +1,14 @@
+--- /home/app/unms/lib/message-hub/index.js	2019-02-01 23:21:27.114828954 -0800
++++ /home/app/unms/lib/message-hub/index.js	2019-02-01 21:44:45.967532396 -0800
+@@ -14,9 +14,9 @@
+ const messages = require('./messages');
+ const log = require('./log');
+ 
+-const { host, port, exchange: exchangeName } = config.rabbitMQ;
++const { host, port, user, pass, exchange: exchangeName } = config.rabbitMQ;
+ const bus = servicebus.bus({
+-  url: `amqp://${host}:${port}`,
++  url: `amqp://${user}:${pass}@${host}:${port}`,
+   exchangeName,
+   correlator: new Correlator(),
+   enableConfirms: true,
