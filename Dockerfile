@@ -1,4 +1,4 @@
-FROM ubnt/unms:0.13.3
+FROM ubnt/unms:0.14.0
 MAINTAINER Westin Miller "equinoxscripts@gmail.com"
 
 ENV UNMS_RABBITMQ_USER="" \
