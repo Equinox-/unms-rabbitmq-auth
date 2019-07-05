@@ -18,4 +18,4 @@ RUN patch /home/app/unms/config.js /tmp/config.js.patch \
 
 ENTRYPOINT ["/usr/bin/dumb-init", "docker-entrypoint.sh"]
 
-CMD ["npm start"]
+CMD ["index.js"]
