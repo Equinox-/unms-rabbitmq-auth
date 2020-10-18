@@ -14,7 +14,8 @@ RUN patch /home/app/unms/config.js /tmp/config.js.patch \
 	&& patch /home/app/unms/lib/device-rpc/transport.js /tmp/device_rpc_transport.js.patch \
 	&& patch /home/app/unms/lib/message-hub/index.js /tmp/message_hub_index.js.patch \
 	&& patch /home/app/unms/lib/notification-hub/plugin.js /tmp/notification_hub_plugin.js.patch \
-	&& sed -i 's/amqp:\/\/${config.host}:${config.port}/amqp:\/\/${config.user}:${config.pass}@${config.host}:${config.port}/' /home/app/unms/lib/ws/messaging.js
+	&& sed -i 's/amqp:\/\/${config.host}:${config.port}/amqp:\/\/${config.user}:${config.pass}@${config.host}:${config.port}/' /home/app/unms/lib/ws/messaging.js \
+	&& sed -i 's/node cli\/check-crm-db.js/echo skip_crm_check/' /home/app/unms/package.json
 
 ENTRYPOINT ["/usr/bin/dumb-init", "docker-entrypoint.sh"]
 
