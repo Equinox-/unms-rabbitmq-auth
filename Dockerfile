@@ -18,7 +18,8 @@ RUN patch /home/app/unms/config.js /tmp/config.js.patch \
 	&& sed -i 's/await checkCrm/\/\/ await checkCrm/' /home/app/unms/lib/dal/setup.js \
 	&& sed -i 's/node cli\/check-crm-db.js/echo skip_crm_check/' /home/app/unms/package.json \
 	&& sed -i "s/NOT p.proisagg/p.prokind != 'a'/" /home/app/unms/lib/dal/setup.js \
-	&& sed -i "s/NOT p.proiswindow/p.prokind != 'w'/" /home/app/unms/lib/dal/setup.js
+	&& sed -i "s/NOT p.proiswindow/p.prokind != 'w'/" /home/app/unms/lib/dal/setup.js \
+	&& sed -i "s/config.siridb.user.account/config.siridb.user.username/" /home/app/unms/lib/ws/register.js
 
 ENTRYPOINT ["/usr/bin/dumb-init", "docker-entrypoint.sh"]
 
