@@ -1,4 +1,4 @@
-FROM ubnt/unms:1.2.7
+FROM ubnt/unms:1.3.5
 MAINTAINER Westin Miller "equinoxscripts@gmail.com"
 
 ENV UNMS_RABBITMQ_USER="" \
@@ -10,7 +10,8 @@ COPY config.js.patch \
 	 notification_hub_plugin.js.patch /tmp/
 
 # Use sed at the end because there's something weird with busybox patch
-RUN patch /home/app/unms/config.js /tmp/config.js.patch \
+RUN apk add patch \
+	&& patch /home/app/unms/config.js /tmp/config.js.patch \
 	&& patch /home/app/unms/lib/device-rpc/transport.js /tmp/device_rpc_transport.js.patch \
 	&& patch /home/app/unms/lib/message-hub/index.js /tmp/message_hub_index.js.patch \
 	&& patch /home/app/unms/lib/notification-hub/plugin.js /tmp/notification_hub_plugin.js.patch \
